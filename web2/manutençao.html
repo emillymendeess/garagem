@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Inteligente - Manutenção e Agendamento</title>
+    <link rel="stylesheet" href="manutençao.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Garagem Inteligente</h1>
+
+        <section id="adicionar-veiculo">
+            <h2>Adicionar Veículo</h2>
+            <form id="form-adicionar-veiculo">
+                <label for="tipo-veiculo">Tipo:</label>
+                <select id="tipo-veiculo" required>
+                    <option value="Carro">Carro</option>
+                    <option value="CarroEsportivo">Carro Esportivo</option>
+                    <option value="Caminhao">Caminhão</option>
+                </select>
+
+                <label for="modelo-veiculo">Modelo:</label>
+                <input type="text" id="modelo-veiculo" required>
+
+                <label for="status-veiculo">Status:</label>
+                <input type="text" id="status-veiculo">
+
+                <button type="submit">Adicionar Veículo</button>
+            </form>
+        </section>
+
+        <section id="lista-veiculos">
+            <h2>Veículos na Garagem</h2>
+            <ul id="veiculos-lista">
+                </ul>
+        </section>
+
+        <section id="agendamentos-futuros">
+            <h2>Agendamentos Futuros</h2>
+            <ul id="agendamentos-lista">
+                </ul>
+        </section>
+    </div>
+
+    <div id="modal-manutencao" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-titulo-manutencao">Detalhes e Agendamento de Manutenção</h2>
+            <div id="veiculo-detalhes">
+                </div>
+            <h3>Histórico de Manutenção</h3>
+            <ul id="historico-manutencao-lista">
+                </ul>
+
+            <h3>Agendar Manutenção</h3>
+            <form id="form-agendar-manutencao">
+                <input type="hidden" id="veiculo-id-manutencao">
+                <label for="data-agendamento">Data e Hora:</label>
+                <input type="text" id="data-agendamento" required>
+
+                <label for="tipo-servico">Tipo de Serviço:</label>
+                <input type="text" id="tipo-servico" required>
+
+                <label for="custo-servico">Custo:</label>
+                <input type="number" id="custo-servico" min="0" step="0.01">
+
+                <label for="descricao-servico">Descrição:</label>
+                <textarea id="descricao-servico"></textarea>
+
+                <button type="submit">Agendar Manutenção</button>
+                <div id="mensagem-agendamento" class="mensagem"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+</body>
+</html>
